@@ -1,0 +1,502 @@
+1.write c++ program to implement in a class called circle. that has private mumber vairable for radius include member function calculate circle area and Circumference
+
+
+#include <iostream>
+class Circle {
+private:
+    double radius;
+public:
+    Circle(double r) {
+        radius = r;
+    }
+    double calculateArea() {
+        return 3.14 * radius * radius;
+    }
+    double calculateCircumference() {
+        return 2 * 3.14 * radius;
+    }
+};
+int main() {
+    double radius1, radius2;
+    std::cout << "Enter the radius of the first circle: ";
+    std::cin >> radius1;
+    std::cout << "Enter the radius of the second circle: ";
+    std::cin >> radius2;
+    Circle circle1(radius1);
+    Circle circle2(radius2);
+    double area1 = circle1.calculateArea();
+    double circumference1 = circle1.calculateCircumference();
+    double area2 = circle2.calculateArea();
+    double circumference2 = circle2.calculateCircumference();
+    std::cout << "Area of the first circle: " << area1 << std::endl;
+    std::cout << "Circumference of the first circle: " << circumference1 << std::endl;
+    std::cout << "Area of the second circle: " << area2 << std::endl;
+    std::cout << "Circumference of the second circle: " << circumference2 << std::endl;
+}
+
+OUTPUT:
+
+
+Enter the radius of the first circle: 5
+Enter the radius of the second circle: 6
+Area of the first circle: 78.5
+Circumference of the first circle: 31.4
+Area of the second circle: 113.04
+Circumference of the second circle: 37.68
+
+--------------------------------
+Process exited after 24.43 seconds with return value 0
+Press any key to continue . . .
+
+
+
+2.write a C++to create class called rectangle that has private number varible length and breadth implement member function to calculate rectangle area and perimeter
+
+
+#include <iostream>
+class Rectangle {
+private:
+    double length;
+    double breadth;
+
+public:
+    Rectangle(double len, double brd) {
+        length = len;
+        breadth = brd;
+    }
+    double calculateArea() {
+        return length * breadth;
+    }
+    double calculatePerimeter() {
+        return 2 * (length + breadth);
+    }
+};
+int main() {
+    double l, b;
+    std::cout << "Enter length of the rectangle: ";
+    std::cin >> l;
+    std::cout << "Enter breadth of the rectangle: ";
+    std::cin >> b;
+    Rectangle rect(l, b);
+    double area = rect.calculateArea();
+    double perimeter = rect.calculatePerimeter();
+    std::cout << "Area of the rectangle: " << area << std::endl;
+    std::cout << "Perimeter of the rectangle: " << perimeter << std::endl;
+    return 0;
+}
+
+OUTPUT:Enter length of the rectangle: 6
+Enter breadth of the rectangle: 9
+Area of the rectangle: 54
+Perimeter of the rectangle: 30
+
+--------------------------------
+Process exited after 3.614 seconds with return value 0
+Press any key to continue . . .
+
+3.
+
+#include <iostream>
+using namespace std;
+class Car {
+private:
+    string company;
+    string model;
+    int year;
+public:
+     Car(const string &company, const string &model, int year) {
+        this->company = company;
+        this->model = model;
+        this->year = year;
+        cout << "Car object created." << endl;
+    }
+    ~Car() {
+        cout << "Car object destroyed." << endl;
+    }
+    string getCompany() {
+        return company;
+    }
+    string getModel() {
+        return model;
+    }
+    int getYear() {
+        return year;
+    }
+    void setCompany(const string &company) {
+        this->company = company;
+    }
+    void setModel(const string &model) {
+        this->model = model;
+    }
+    void setYear(int year) {
+        this->year = year;
+    }
+};
+int main() {
+    Car myCar("Toyota", "Camry", 2022);
+	cout << "Company: " << myCar.getCompany() << endl;
+    cout << "Model: " << myCar.getModel() << endl;
+    cout << "Year: " << myCar.getYear() << endl;
+    myCar.setCompany("Honda");
+    myCar.setModel("Accord");
+    myCar.setYear(2023);
+    cout << "Updated Company: " << myCar.getCompany() << endl;
+    cout << "Updated Model: " << myCar.getModel() << endl;
+    cout << "Updated Year: " << myCar.getYear() << endl;
+return 0;
+}
+
+OUTPUT:
+
+Car object created.
+Company: Toyota
+Model: Camry
+Year: 2022
+Updated Company: Honda
+Updated Model: Accord
+Updated Year: 2023
+Car object destroyed.
+
+--------------------------------
+Process exited after 0.4055 seconds with return value 0
+Press any key to continue . . .
+
+
+4. 
+
+
+#include <iostream>
+class Student {
+  private: std::string name;
+  std::string studentClass;
+  int rollNumber;
+  double marks;
+  public:
+    Student(const std::string & studentName,
+      const std::string & sClass, int rollNum, double studentMarks): name(studentName),
+  studentClass(sClass),
+  rollNumber(rollNum),
+  marks(studentMarks) {}
+  std::string calculateGrade() {
+    if (marks >= 90) {
+      return "A+";
+    } else if (marks >= 80) {
+      return "A";
+    } else if (marks >= 70) {
+      return "B";
+    } else if (marks >= 60) {
+      return "C";
+    } else if (marks >= 50) {
+      return "D";
+    }else {
+            return "F";
+        }
+  }
+  void displayInformation() {
+    std::cout << "\n\nName: " << name << std::endl;
+    std::cout << "Class: " << studentClass << std::endl;
+    std::cout << "Roll Number: " << rollNumber << std::endl;
+    std::cout << "Marks: " << marks << std::endl;
+    std::cout << "Grade: " << calculateGrade() << std::endl;
+  }
+};
+int main() {
+  std::string studentName;
+  std::string sClass;
+  int rollNum;
+  double studentMarks;
+  std::cout << "Student details: ";
+  std::cout << "\nName: ";
+  std::getline(std::cin, studentName);
+  std::cout << "Class: ";
+  std::getline(std::cin, sClass);
+  std::cout << "Roll number: ";
+  std::cin >> rollNum;
+  std::cout << "Marks (0-100): ";
+  std::cin >> studentMarks;
+  Student student(studentName, sClass, rollNum, studentMarks);
+  student.displayInformation();
+  return 0;
+}
+
+
+OUTPUT:
+
+
+Student details:
+Name: SAI
+Class: 8
+Roll number: 12655
+Marks (0-100): 60
+
+
+Name: SAI
+Class: 8
+Roll Number: 12655
+Marks: 60
+Grade: C
+
+--------------------------------
+Process exited after 12.99 seconds with return value 0
+Press any key to continue . . .
+
+
+5.
+
+
+
+
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    double A, B, C;
+    std::cout << "Enter the value of A: ";
+    std::cin >> A;
+    std::cout << "Enter the value of B: ";
+    std::cin >> B;
+    std::cout << "Enter the value of C: ";
+    std::cin >> C;
+
+    try {
+        if (A - B == 0) {
+            throw std::runtime_error("Division by zero is not allowed.");
+        }
+        double D = C / (A - B);
+        std::cout << "D = " << D << std::endl;
+    } catch (const std::runtime_error &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    return 0;
+}
+   OUTPUT: 
+
+Enter the value of A: 6
+Enter the value of B: 4
+Enter the value of C: 2
+D = 1
+
+--------------------------------
+Process exited after 6.054 seconds with return value 0
+Press any key to continue . . .
+
+
+
+
+6.
+
+
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    int arr[5] = {20, 30, 40, 50, 60};
+
+    try {
+        int index = 5;
+        if (index < 0 || index >= 5) {
+            throw std::out_of_range("Index is out of bounds.");
+        }
+
+        int value = arr[index];
+        std::cout << "Value at index " << index << ": " << value << std::endl;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+}
+
+
+OUTPUT:
+
+
+Error: Index is out of bounds.
+
+--------------------------------
+Process exited after 0.3951 seconds with return value 0
+Press any key to continue . . .
+
+
+
+
+
+7.
+
+
+#include <iostream>
+const double PI = 3.14; 
+class Circle {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    bool operator==(const Circle& other) const {
+        return calculateArea() == other.calculateArea();
+}
+    double calculateArea() const {
+        return PI * radius * radius;
+    }
+};
+int main() {
+    Circle circle1(5.0); 
+    Circle circle2(3.0); 
+    double area1 = circle1.calculateArea();
+    double area2 = circle2.calculateArea();
+    if (circle1 == circle2) {
+        std::cout << "The areas of the circles are equal." << std::endl;
+    } else {
+        std::cout << "The areas of the circles are not equal." << std::endl;
+    }
+    return 0;
+}
+
+
+OUTPUT:
+
+
+The areas of the circles are not equal.
+
+--------------------------------
+Process exited after 0.4177 seconds with return value 0
+Press any key to continue . . .
+
+
+8.
+
+
+#include <iostream>
+class MyNumber {
+private:
+    int value;
+public:
+    MyNumber(int val) : value(val) {}
+    MyNumber& operator++() {
+        value++;
+        return *this;
+    }
+    MyNumber operator++(int) {
+        MyNumber temp = *this;
+        value++;
+        return temp;
+    }
+
+    int getValue() const {
+        return value;
+    }
+};
+int main() {
+    MyNumber num(5);
+    ++num;
+    std::cout << "After pre-increment: " << num.getValue() << std::endl;
+    MyNumber result = num++;
+    std::cout << "After post-increment: " << num.getValue() << std::endl;
+    return 0;
+}
+
+
+OUTPUT:
+
+
+
+After pre-increment: 6
+After post-increment: 7
+
+--------------------------------
+Process exited after 0.3822 seconds with return value 0
+Press any key to continue . . .
+
+
+
+
+9.
+
+
+
+#include <iostream>
+class Number {
+private:
+    int num;
+public:
+    Number(int n) : num(n) {}
+    friend void checkOddEven(const Number&); 
+};
+void checkOddEven(const Number& number) {
+    if (number.num % 2 == 0) {
+        std::cout << number.num << " is an even number." << std::endl;
+    } else {
+        std::cout << number.num << " is an odd number." << std::endl;
+    }
+}
+int main() {
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    Number numObj(input);
+    checkOddEven(numObj); 
+    return 0;
+}
+
+
+OUTPUT:
+
+
+
+Enter a number: 9
+9 is an odd number.
+
+--------------------------------
+Process exited after 1.413 seconds with return value 0
+Press any key to continue . . .
+
+
+
+10.
+
+
+
+#include <iostream>
+#include <cmath>
+class Triangle {
+private:
+    double side1, side2, side3;
+public:
+    Triangle(double s1, double s2, double s3) : side1(s1), side2(s2), side3(s3) {}
+    friend bool isAreaValid(const Triangle& triangle, double targetArea);
+};
+bool isAreaValid(const Triangle& triangle, double targetArea) {
+    double s1 = triangle.side1;
+    double s2 = triangle.side2;
+    double s3 = triangle.side3;
+    double s = (s1 + s2 + s3) / 2.0;
+    double area = sqrt(s * (s - s1) * (s - s2) * (s - s3));
+    double tolerance = 1e-6; 
+    return fabs(area - targetArea) < tolerance;
+}
+int main() {
+    double side1, side2, side3, targetArea;
+    std::cout << "Enter the lengths of the sides of the triangle: ";
+    std::cin >> side1 >> side2 >> side3;
+    std::cout << "Enter the target area: ";
+    std::cin >> targetArea;
+    Triangle triangle(side1, side2, side3);
+    if (isAreaValid(triangle, targetArea)) {
+        std::cout << "The given area is valid for the triangle." << std::endl;
+    } else {
+        std::cout << "The given area is not valid for the triangle." << std::endl;
+    }
+    return 0;
+}
+
+
+OUTPUT:
+
+
+
+Enter the lengths of the sides of the triangle: 6
+9
+8
+Enter the target area: 3
+The given area is not valid for the triangle.
+
+--------------------------------
+Process exited after 9.458 seconds with return value 0
+Press any key to continue . . .
